@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak, Arshiya ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #fd79a8 50%, #e17055 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background Elements */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Crescent Moon */
+        .crescent {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #fff 40%, transparent 40%), 
+                        radial-gradient(circle at 70% 70%, #fff 40%, transparent 40%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            animation: glow 4s ease-in-out infinite alternate;
+            z-index: 2;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+            100% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.9), 0 0 70px rgba(255, 215, 0, 0.6); }
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Main Heading */
+        .main-heading {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 10px 20px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        /* Subtext */
+        .subtext {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.6;
+            animation: fadeInUp 2s ease-out 0.3s both;
+        }
+
+        /* Romantic Message */
+        .romantic-message {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 2s ease-out 0.6s both;
+            font-style: italic;
+        }
+
+        /* Surprise Button */
+        .surprise-btn {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #8b4513;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2s ease-out 0.9s both;
+        }
+
+        .surprise-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+
+        .surprise-btn:active {
+            transform: translateY(-2px);
+        }
+
+        /* Hidden Surprise */
+        .surprise-message {
+            display: none;
+            background: linear-gradient(135deg, #ff9ff3, #f368e0);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 25px 50px rgba(255, 105, 180, 0.4);
+            transform: scale(0);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .surprise-message.show {
+            display: block;
+            transform: scale(1);
+            animation: surprisePop 0.8s ease-out;
+        }
+
+        @keyframes surprisePop {
+            0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        /* Floating Hearts */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Music Controls */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 20px;
+            cursor: pointer;
+            color: white;
+            font-size: 0.9rem;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Lanterns */
+        .lantern {
+            position: fixed;
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(145deg, #ffed4e, #ffd700);
+            border-radius: 20px 20px 5px 5px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            animation: floatLantern 8s ease-in-out infinite;
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 15px;
+            background: #8b4513;
+            border-radius: 2px;
+        }
+
+        @keyframes floatLantern {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .crescent {
+                width: 60px;
+                height: 60px;
+                top: 10px;
+                right: 15px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .romantic-message {
+                padding: 20px;
+                margin: 20px 0;
+            }
+        }
+
+        /* Islamic Pattern Border */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Music Control -->
+    <div class="music-control" id="musicToggle">
+        🎵 Music
+    </div>
+
+    <!-- Crescent Moon -->
+    <div class="crescent"></div>
+
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Floating Hearts -->
+    <div class="hearts" id="hearts"></div>
+
+    <!-- Lanterns -->
+    <div class="lantern" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="lantern" style="top: 20%; right: 15%; animation-delay: 2s;"></div>
+    <div class="lantern" style="bottom: 20%; left: 20%; animation-delay: 4s;"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1 class="main-heading">Eid Mubarak, My Love Arshiya ❤️</h1>
+        <p class="subtext">May this Eid bring happiness, love, and endless smiles to your life.</p>
+        
+        <div class="romantic-message">
+            "You are the most beautiful part of my life. This Eid, I just want to thank Allah for blessing me with you. I love you so much ❤️"
+        </div>
+
+        <button class="surprise-btn" id="surpriseBtn">✨ Click for Surprise ✨</button>
+        <div class="surprise-message" id="surpriseMsg">
+            You mean everything to me, Arshiya. Eid Mubarak ❤️💕
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSq+2/LJeSwFJHf
